@@ -14,7 +14,9 @@ function Tempo({tempo, setTempo}){
                 min={60}
                 max={240}
                 value={tempo}
-                onChange={(e)=>{setTempo(e.target.value)}}
+                onChange={
+                    (e)=>{
+                        setTempo(e.target.value)}}
             />
         </div>
     );

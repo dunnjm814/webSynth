@@ -1,4 +1,4 @@
-import React, { useCallback, useState, useEffect } from "react";
+import React, { useCallback, useState, useEffect, useRef } from "react";
 import * as Tone from "tone";
 import "./Sequencer.css";
 import Square from '../Square/Square.js'
@@ -9,8 +9,7 @@ import ScaleSelector from "../ScaleSelector/ScaleSelector";
 
 
 function Sequencer() {
-    // Use context to grab changing tempo slider state from tempo component 
-    // const tempo = 120;
+    
     const [tempo, setTempo] = useState(120);
     const [pattern, updatePattern] = useState(initialPattern);
     const [playState, setPlayState] = useState(Tone.Transport.state);
@@ -19,8 +18,10 @@ function Sequencer() {
     const [notes, setNotes] = useState([]);
     const [scale, setScale] = useState('');
 
+    const synthRef = useRef(new Tone.PolySynth().toDestination());
 
-    const synth = new Tone.PolySynth().toDestination();    
+
+    // synthRef.current = new Tone.PolySynth().toDestination();    
     Tone.Transport.bpm.value = tempo;
 
     useEffect(
@@ -35,7 +36,7 @@ function Sequencer() {
                 if (row[col]) {
                     // Play based on which row
                     //trigger sample here
-                    synth.triggerAttackRelease(notes[noteIndex], "8n", time);
+                    synthRef.current.triggerAttackRelease(notes[noteIndex], "8n", time);
                 }  
             });
             },
@@ -43,12 +44,16 @@ function Sequencer() {
             "16n"
         ).start(0);
         return () => loop.dispose();
-        }, [pattern, notes, synth] // Retrigger when pattern changes
+        }, [pattern, notes, synthRef] // Retrigger when pattern changes
     );
     
     const toggle = useCallback(() => {
         Tone.Transport.toggle();
         setPlayState(Tone.Transport.state);
+        if(!Tone.Transport.state){
+            Tone.Transport.stop();
+            Tone.Transport.cancel();
+        }
     }, []);
       // Updates pattern via copy and invert value
     function setPattern({ y, x, value }) {
