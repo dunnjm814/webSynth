@@ -11,7 +11,7 @@ function Play({toggle, playState}) {
         marginTop: '15px',
         transition: '0.5s',
         cursor: 'pointer'
-    }
+    };
     return(
         <div className="play-key">
             <div

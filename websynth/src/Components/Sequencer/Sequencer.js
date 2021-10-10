@@ -5,6 +5,7 @@ import Square from '../Square/Square.js'
 import Play from '../Play/Play.js'
 import  keyOptions  from '../utility/Scales.js'
 import initialPattern from "../utility/initialPattern";
+import ScaleSelector from "../ScaleSelector/ScaleSelector";
 
 
 function Sequencer() {
@@ -66,11 +67,6 @@ function Sequencer() {
     return(
         <>
             <div id="seq-id-wrap">
-                {/* <div id="seq-row-ids">
-                    {pattern.map((row, y) => (
-                    <h3 key={`row-${y}`}>{y + 1}</h3>
-                ))}
-                </div> */}
                 <div className="grid">
                     {pattern.map((row, y) => (
                         <div key={`row-wrap-${y}`} className="row">
@@ -94,6 +90,9 @@ function Sequencer() {
                 </div>
                 <Play toggle={toggle} 
                     playState={playState}    
+                />
+                <ScaleSelector setScaleOption={setScaleOption}
+                    scale={scale}
                 />
             </div>
         </>
