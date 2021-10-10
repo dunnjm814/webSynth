@@ -5,7 +5,7 @@ import  keyOptions  from '../utility/Scales.js'
 function ScaleSelector({setScaleOption, scale}){
 
     return(
-        <div>
+        <div id='key-select-wrap'>
             <label htmlFor="chooseKey" className="key-select-label">
                 {`Pick a Key: `}
             <select

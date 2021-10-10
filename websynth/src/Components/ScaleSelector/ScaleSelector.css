@@ -1,0 +1,28 @@
+#key-select-wrap {
+    display: flex;
+    justify-content: space-between;
+    
+}
+.key-select-label{
+    font-size: 30px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    transition: 0.5s;
+    color: #818181;
+}
+.key-select{
+    margin-left: 10px;
+    margin-top: 10px;
+    width: 120px;
+    height: 30px;
+    border-radius: 5px;
+    color: #818181;
+}
+.key-option{
+    outline: none;
+}
+.key-select-label:hover{
+    color: #ad9889;
+    cursor: pointer;
+}

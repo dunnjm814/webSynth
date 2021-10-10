@@ -42,7 +42,7 @@ function Sequencer() {
             "16n"
         ).start(0);
         return () => loop.dispose();
-        }, [pattern, notes] // Retrigger when pattern changes
+        }, [pattern, notes, synth] // Retrigger when pattern changes
     );
     
     const toggle = useCallback(() => {
@@ -87,12 +87,14 @@ function Sequencer() {
                         </div>
                     ))}
                 </div>
-                <Play toggle={toggle} 
-                    playState={playState}    
-                />
-                <ScaleSelector setScaleOption={setScaleOption}
-                    scale={scale}
-                />
+                <div id='toggle-scale-wrap'>
+                    <Play toggle={toggle} 
+                        playState={playState}    
+                    />
+                    <ScaleSelector setScaleOption={setScaleOption}
+                        scale={scale}
+                    />
+                </div>
             </div>
         </>
     );
