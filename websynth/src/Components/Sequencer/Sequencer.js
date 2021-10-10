@@ -3,14 +3,15 @@ import * as Tone from "tone";
 import "./Sequencer.css";
 import Square from '../Square/Square.js'
 import Play from '../Play/Play.js';
+import Tempo from '../Tempo/Tempo.js'
 import initialPattern from "../utility/initialPattern";
 import ScaleSelector from "../ScaleSelector/ScaleSelector";
 
 
 function Sequencer() {
     // Use context to grab changing tempo slider state from tempo component 
-    const tempo = 120;
-
+    // const tempo = 120;
+    const [tempo, setTempo] = useState(120);
     const [pattern, updatePattern] = useState(initialPattern);
     const [playState, setPlayState] = useState(Tone.Transport.state);
     const [activeColumn, setColumn] = useState(0);
@@ -95,6 +96,7 @@ function Sequencer() {
                         scale={scale}
                     />
                 </div>
+                <Tempo tempo={tempo} setTempo={setTempo}/>
             </div>
         </>
     );

@@ -17,15 +17,13 @@ function ScaleSelector({setScaleOption, scale}){
                 }}
             >
                 {keyOptions.map((keyOpt, i) => (
-                <>
                     <option
-                        key={`key-${i}`}
+                        key={`key-${keyOpt.label}-${i}`}
                         className="key-option"
                         value={JSON.stringify(keyOpt)}
                     >
                         {keyOpt.label}
                     </option>
-                </>
                 ))}
             </select>
             </label>
