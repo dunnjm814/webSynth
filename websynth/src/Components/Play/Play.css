@@ -1,0 +1,13 @@
+.play-key{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+#play-state{
+    transition: 0.5s
+}
+#play-state:hover{
+    cursor: pointer;
+    color:aquamarine;
+}

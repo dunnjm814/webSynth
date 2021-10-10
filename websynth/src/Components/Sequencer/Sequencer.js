@@ -2,8 +2,7 @@ import React, { useCallback, useState, useEffect } from "react";
 import * as Tone from "tone";
 import "./Sequencer.css";
 import Square from '../Square/Square.js'
-import { CgPlayButtonR } from "react-icons/cg";
-import { CgPlayStopR } from "react-icons/cg";
+import Play from '../Play/Play.js'
 import  keyOptions  from '../utility/Scales.js'
 import initialPattern from "../utility/initialPattern";
 
@@ -67,11 +66,11 @@ function Sequencer() {
     return(
         <>
             <div id="seq-id-wrap">
-                <div id="seq-row-ids">
+                {/* <div id="seq-row-ids">
                     {pattern.map((row, y) => (
                     <h3 key={`row-${y}`}>{y + 1}</h3>
                 ))}
-                </div>
+                </div> */}
                 <div className="grid">
                     {pattern.map((row, y) => (
                         <div key={`row-wrap-${y}`} className="row">
@@ -93,6 +92,9 @@ function Sequencer() {
                         </div>
                     ))}
                 </div>
+                <Play toggle={toggle} 
+                    playState={playState}    
+                />
             </div>
         </>
     );
