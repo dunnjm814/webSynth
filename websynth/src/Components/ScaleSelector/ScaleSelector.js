@@ -1,5 +1,6 @@
 
 import './ScaleSelector.css';
+import  keyOptions  from '../utility/Scales.js'
 
 function ScaleSelector({setScaleOption, scale}){
 

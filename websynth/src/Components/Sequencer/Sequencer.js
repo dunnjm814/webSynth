@@ -2,8 +2,7 @@ import React, { useCallback, useState, useEffect } from "react";
 import * as Tone from "tone";
 import "./Sequencer.css";
 import Square from '../Square/Square.js'
-import Play from '../Play/Play.js'
-import  keyOptions  from '../utility/Scales.js'
+import Play from '../Play/Play.js';
 import initialPattern from "../utility/initialPattern";
 import ScaleSelector from "../ScaleSelector/ScaleSelector";
 
