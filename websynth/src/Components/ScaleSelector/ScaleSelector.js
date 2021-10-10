@@ -1,4 +1,3 @@
-
 import './ScaleSelector.css';
 import  keyOptions  from '../utility/Scales.js'
 
@@ -12,7 +11,7 @@ function ScaleSelector({setScaleOption, scale}){
                 className="key-select"
                 name="chooseKey"
                 id="chooseKey"
-                value={scale}
+                value={scale.label}
                 onChange={(e) => {
                     setScaleOption(JSON.parse(e.target.value));
                 }}
